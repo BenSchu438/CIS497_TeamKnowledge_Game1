@@ -9,6 +9,7 @@ public class WanderingScript : MonoBehaviour
     public int speed = 40;
     public float turnTimer = 4f;
     public bool rotateOn = false;
+    public int direction = 0;
     
 
     // Start is called before the first frame update
@@ -23,7 +24,7 @@ public class WanderingScript : MonoBehaviour
     {
         if (rotateOn == false)
         {
-            rb.MovePosition(transform.position + (Vector3.right * Time.deltaTime * speed));
+            rb.MovePosition(transform.position + (new Vector3(Mathf.Cos(direction), 0, Mathf.Sin(direction)) * Time.deltaTime * speed));
         }
     }
 
@@ -31,8 +32,9 @@ public class WanderingScript : MonoBehaviour
     {
         while (true)
         {
+            direction = Random.Range(-180, 180);
+            transform.Rotate(new Vector3(0, direction, 0));
             yield return new WaitForSeconds(turnTimer);
-            transform.Rotate(new Vector3(0, Random.Range(0, 360), 0));
         }
     }
 }
