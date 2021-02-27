@@ -20,10 +20,14 @@ public class PlayerController : MonoBehaviour
     {
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
-        Vector3 movement = new Vector3(horizontalInput * Time.deltaTime * speed, 0, verticalInput * Time.deltaTime * speed);
+        Vector3 movement = new Vector3(horizontalInput, 0.0f, verticalInput);
 
         //transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
         //transform.Translate(Vector3.forward * verticalInput * Time.deltaTime * speed);
-        rb.MovePosition(transform.position + movement);
+        if (horizontalInput != 0 || verticalInput != 0)
+        {
+            rb.MovePosition(transform.position + (movement * Time.deltaTime * speed));
+            transform.rotation = Quaternion.LookRotation(movement);
+        }
     }
 }
