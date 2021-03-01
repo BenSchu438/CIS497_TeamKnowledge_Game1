@@ -6,7 +6,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public abstract class Interactable : MonoBehaviour
 {
     public bool hasAxe;
@@ -15,6 +15,9 @@ public abstract class Interactable : MonoBehaviour
     public bool playerClose = false;
 
     public Tools currentTool;
+
+    //temp demo text
+    public Text equipText;
 
     // Set default tool to nothing
     void Awake()
@@ -30,18 +33,21 @@ public abstract class Interactable : MonoBehaviour
             // 1 - equip axe
             Destroy(GetComponent<Tools>());
             currentTool = gameObject.AddComponent<Axe>();
+            equipText.text = "Currently Equipped: Axe";
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2) && hasPick)
         {
             // 2 - equip picks
             Destroy(GetComponent<Tools>());
             currentTool = gameObject.AddComponent<Pick>();
+            equipText.text = "Currently Equipped: Picks";
         }
         else if (Input.GetKeyDown(KeyCode.Space))
         {
             // Space - Unequip tools
             Destroy(GetComponent<Tools>());
             currentTool = gameObject.AddComponent<Nothing>();
+            equipText.text = "Currently Equipped: Nothing";
         }
 
         // Interact if player is close

@@ -6,8 +6,7 @@ TagManager:
   tags:
   - CuttableTree
   - ClimbableWall
-  - BridgeLog
-  - StandLog
+  - Ground
   layers:
   - Default
   - TransparentFX

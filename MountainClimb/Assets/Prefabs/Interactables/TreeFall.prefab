@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4638229071171779047}
   - component: {fileID: 4638229071171779046}
   m_Layer: 0
-  m_Name: TreeCuttable
+  m_Name: TreeFall
   m_TagString: CuttableTree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 4638229071477983789}
   m_Layer: 0
   m_Name: BridgeLog
-  m_TagString: BridgeLog
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 4638229073027659393}
   m_Layer: 0
   m_Name: StandingLog
-  m_TagString: StandLog
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

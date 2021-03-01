@@ -29,5 +29,6 @@ public class PlayerController : MonoBehaviour
             rb.MovePosition(transform.position + (movement * Time.deltaTime * speed));
             transform.rotation = Quaternion.LookRotation(movement);
         }
+        
     }
 }
