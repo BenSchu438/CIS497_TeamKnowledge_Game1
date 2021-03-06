@@ -64,6 +64,7 @@ MonoBehaviour:
   hasPick: 1
   playerClose: 0
   currentTool: {fileID: 0}
+  equipText: {fileID: 0}
   standingLog: {fileID: 4638229073027659392}
   fallenLog: {fileID: 4638229071477983785}
   waitTime: 5
@@ -127,8 +128,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c3bcfaa3d8241bb47af62e8cf8a359e1, type: 2}
+  - {fileID: 2100000, guid: 0aaeced83050ea944a10bfb09f11c404, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -222,8 +223,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c3bcfaa3d8241bb47af62e8cf8a359e1, type: 2}
+  - {fileID: 2100000, guid: 0aaeced83050ea944a10bfb09f11c404, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -305,8 +306,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c3bcfaa3d8241bb47af62e8cf8a359e1, type: 2}
+  - {fileID: 2100000, guid: 0aaeced83050ea944a10bfb09f11c404, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -5,17 +5,67 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject pauseMenu;
+    public GameObject endLevelMenu;
+    public GameObject playerUI;
+    public bool finishedLevel = false;
+
+    public GameObject levelBlock;
+
+    private void Start()
     {
-        
+        // make sure level starts at regular time scale
+        Time.timeScale = 1f;
     }
 
-    // Update is called once per frame
-    void Update()
+    // Enable end of level menu
+    void EndLevel()
     {
-        //simple restart script for initial 'demo'
-        if (Input.GetKeyDown(KeyCode.R))
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        finishedLevel = true;
+        playerUI.SetActive(false);
+        endLevelMenu.SetActive(true);
+        Time.timeScale = 0f;
     }
+    // Disable the object that was blocking the exit
+    void UnlockEnd()
+    {
+        levelBlock.SetActive(false);
+    }
+
+    public void Pause()
+    {
+        if(!finishedLevel)
+        {
+            Time.timeScale = 0f;
+            pauseMenu.SetActive(true);
+            playerUI.SetActive(false);
+        }
+        
+    }
+    public void UnPause()
+    {
+        Time.timeScale = 1f;
+        pauseMenu.SetActive(false);
+        playerUI.SetActive(true);
+    }
+
+    // Restart current scene
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    // Load input level
+    public void LoadLevel(string n)
+    {
+        UnloadLevel();
+        SceneManager.LoadScene(n);
+    }
+
+    // Unload level
+    public void UnloadLevel()
+    {
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
+    }
+
 }

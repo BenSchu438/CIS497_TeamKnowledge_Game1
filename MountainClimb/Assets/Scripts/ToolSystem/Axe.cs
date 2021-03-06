@@ -7,8 +7,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Axe : Tools
+public class Axe : Tools, IObserver
 {
+    public GameObject buttonRef;
+
+    public void NewCommand(bool b)
+    {
+        buttonRef.SetActive(b);
+    }
+
     public override bool Use(GameObject i)
     {
         return i.CompareTag("CuttableTree");
