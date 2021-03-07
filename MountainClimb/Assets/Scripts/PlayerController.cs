@@ -26,7 +26,10 @@ public class PlayerController : MonoBehaviour
         //transform.Translate(Vector3.forward * verticalInput * Time.deltaTime * speed);
         if (horizontalInput != 0 || verticalInput != 0)
         {
-            rb.MovePosition(transform.position + (movement * Time.deltaTime * speed));
+            //rb.MovePosition(transform.position + (movement * Time.deltaTime * speed));
+
+            rb.AddForce(transform.forward * speed, ForceMode.Force);
+
             transform.rotation = Quaternion.LookRotation(movement);
         }
         

@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Enable end of level menu
-    void EndLevel()
+    public void EndLevel()
     {
         finishedLevel = true;
         playerUI.SetActive(false);
@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
     }
     // Disable the object that was blocking the exit
-    void UnlockEnd()
+    public void UnlockEnd()
     {
         levelBlock.SetActive(false);
     }
@@ -68,4 +68,15 @@ public class GameManager : MonoBehaviour
         SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
     }
 
+    private void Update()
+    {
+        // Aslong as not on main menu screen, pause with 'p'
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            if (!(SceneManager.GetActiveScene().name.Equals("Menu")) && pauseMenu.activeInHierarchy)
+                UnPause();
+            else if (!(SceneManager.GetActiveScene().name.Equals("Menu")) && !pauseMenu.activeInHierarchy)
+                Pause();
+        }
+    }
 }
