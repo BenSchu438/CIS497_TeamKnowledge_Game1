@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public float verticalInput;
     public float speed = 100.0f;
 
+    public bool grounded;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -24,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
         //transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
         //transform.Translate(Vector3.forward * verticalInput * Time.deltaTime * speed);
-        if (horizontalInput != 0 || verticalInput != 0)
+        if ((horizontalInput != 0 || verticalInput != 0) && grounded)
         {
             //rb.MovePosition(transform.position + (movement * Time.deltaTime * speed));
 
@@ -33,5 +35,21 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(movement);
         }
         
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+            grounded = true;
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+            grounded = false;
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+            grounded = true;
     }
 }

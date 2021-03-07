@@ -167,11 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07cde0f48b3cbaa4b97eaddb42cc7ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasAxe: 1
-  hasPick: 1
   playerClose: 0
   currentTool: {fileID: 0}
-  equipText: {fileID: 0}
   startPlayer: {fileID: 1748473259661589393}
   midPlayer: {fileID: 1748473258985299498}
   finalPlayer: {fileID: 1748473258896469462}
@@ -583,6 +580,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2584853085040547166, guid: a4e69c12150b64344a4ffb92b8a8fa05, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4e69c12150b64344a4ffb92b8a8fa05, type: 3}
 --- !u!4 &1273423789882954363 stripped
@@ -730,6 +731,10 @@ PrefabInstance:
     - target: {fileID: 1725558234986328855, guid: a4e69c12150b64344a4ffb92b8a8fa05, type: 3}
       propertyPath: m_Name
       value: Grass1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2584853085040547166, guid: a4e69c12150b64344a4ffb92b8a8fa05, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4e69c12150b64344a4ffb92b8a8fa05, type: 3}
@@ -1158,6 +1163,10 @@ PrefabInstance:
     - target: {fileID: 1725558234986328855, guid: a4e69c12150b64344a4ffb92b8a8fa05, type: 3}
       propertyPath: m_Name
       value: Grass1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2584853085040547166, guid: a4e69c12150b64344a4ffb92b8a8fa05, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4e69c12150b64344a4ffb92b8a8fa05, type: 3}

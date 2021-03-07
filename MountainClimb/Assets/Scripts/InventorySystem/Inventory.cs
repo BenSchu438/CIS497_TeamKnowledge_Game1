@@ -10,10 +10,10 @@ public class Inventory : MonoBehaviour, ISubject
     public GameObject[] storedTools;
 
     public bool opened = false;
-    public float transTime;
+    //public float transTime;
     public Vector3 openPos;
     public Vector3 closePos;
-    
+        
     private void Awake()
     {
         // register each precollected tool

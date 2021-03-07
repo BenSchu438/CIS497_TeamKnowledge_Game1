@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
     // Load input level
     public void LoadLevel(string n)
     {
-        UnloadLevel();
+        //UnloadLevel();
         SceneManager.LoadScene(n);
     }
 

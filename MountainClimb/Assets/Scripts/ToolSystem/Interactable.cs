@@ -9,15 +9,9 @@ using UnityEngine;
 using UnityEngine.UI;
 public abstract class Interactable : MonoBehaviour
 {
-    public bool hasAxe;
-    public bool hasPick;
-
     public bool playerClose = false;
 
     public Tools currentTool;
-
-    //temp demo text
-    public Text equipText;
 
     // Set default tool to nothing
     void Awake()
@@ -27,29 +21,6 @@ public abstract class Interactable : MonoBehaviour
 
     void Update()
     {
-        // Equip tool if possible
-        if(Input.GetKeyDown(KeyCode.Alpha1) && hasAxe)
-        {
-            // 1 - equip axe
-            Destroy(GetComponent<Tools>());
-            currentTool = gameObject.AddComponent<Axe>();
-            equipText.text = "Currently Equipped: Axe";
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2) && hasPick)
-        {
-            // 2 - equip picks
-            Destroy(GetComponent<Tools>());
-            currentTool = gameObject.AddComponent<Pick>();
-            equipText.text = "Currently Equipped: Picks";
-        }
-        else if (Input.GetKeyDown(KeyCode.Space))
-        {
-            // Space - Unequip tools
-            Destroy(GetComponent<Tools>());
-            currentTool = gameObject.AddComponent<Nothing>();
-            equipText.text = "Currently Equipped: Nothing";
-        }
-
         // Interact if player is close
         if(Input.GetKeyDown(KeyCode.E) && playerClose)
         {
@@ -57,17 +28,25 @@ public abstract class Interactable : MonoBehaviour
         }
     }
 
-    public abstract void UseTool();
+    public void EquipAxe()
+    {
+        Destroy(GetComponent<Tools>());
+        currentTool = gameObject.AddComponent<Axe>();
+    }
 
-    // Use these when player obtains tools in level
-    public void ObtainAxe()
+    public void EquipPick()
     {
-        hasAxe = true;
+        Destroy(GetComponent<Tools>());
+        currentTool = gameObject.AddComponent<Pick>();
     }
-    public void ObtainPick()
+
+    public void UnEquip()
     {
-        hasPick = true;
+        Destroy(GetComponent<Tools>());
+        currentTool = gameObject.AddComponent<Nothing>();
     }
+
+    public abstract void UseTool();
 
     // Determins if player is close enough to use
     public void OnTriggerEnter(Collider other)

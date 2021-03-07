@@ -60,11 +60,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de64bc95f6e981e4abf87971d2808c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasAxe: 1
-  hasPick: 1
   playerClose: 0
   currentTool: {fileID: 0}
-  equipText: {fileID: 0}
   standingLog: {fileID: 4638229073027659392}
   fallenLog: {fileID: 4638229071477983785}
   waitTime: 5
@@ -82,7 +79,7 @@ GameObject:
   - component: {fileID: 4638229071477983789}
   m_Layer: 0
   m_Name: BridgeLog
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -260,7 +257,7 @@ GameObject:
   - component: {fileID: 4638229073027659393}
   m_Layer: 0
   m_Name: StandingLog
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
