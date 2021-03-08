@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float horizontalInput;
     public float verticalInput;
     public float speed = 100.0f;
+    public float maxSpeed;
 
     public bool grounded;
 
@@ -18,7 +19,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
@@ -34,7 +35,10 @@ public class PlayerController : MonoBehaviour
 
             transform.rotation = Quaternion.LookRotation(movement);
         }
-        
+
+        if (rb.velocity.magnitude > maxSpeed)
+            rb.velocity = rb.velocity.normalized * maxSpeed;
+
     }
 
     private void OnCollisionStay(Collision collision)
