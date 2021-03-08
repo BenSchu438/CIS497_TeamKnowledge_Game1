@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float horizontalInput;
     public float verticalInput;
     public float speed = 100.0f;
-    public float fallSpeed = -10;
+    public float maxSpeed;
 
     public bool grounded;
 
@@ -35,13 +35,10 @@ public class PlayerController : MonoBehaviour
 
             transform.rotation = Quaternion.LookRotation(movement);
         }
-        else if (horizontalInput == 0 && verticalInput == 0 && grounded)
-            rb.velocity = new Vector3(0, 0, 0);
-        if(!grounded)
-        {
-            rb.velocity = new Vector3(0, fallSpeed, 0);
-        }
-        
+
+        if (rb.velocity.magnitude > maxSpeed)
+            rb.velocity = rb.velocity.normalized * maxSpeed;
+
     }
 
     private void OnCollisionStay(Collision collision)
