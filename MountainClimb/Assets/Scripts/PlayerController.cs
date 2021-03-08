@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float horizontalInput;
     public float verticalInput;
     public float speed = 100.0f;
+    public float fallSpeed = -10;
 
     public bool grounded;
 
@@ -18,7 +19,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
@@ -33,6 +34,12 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(transform.forward * speed, ForceMode.Force);
 
             transform.rotation = Quaternion.LookRotation(movement);
+        }
+        else if (horizontalInput == 0 && verticalInput == 0 && grounded)
+            rb.velocity = new Vector3(0, 0, 0);
+        if(!grounded)
+        {
+            rb.velocity = new Vector3(0, fallSpeed, 0);
         }
         
     }
