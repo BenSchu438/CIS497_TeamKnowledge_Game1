@@ -1,3 +1,8 @@
+/* * (Jerod Lockhart) 
+ * * (Random Music picker) 
+ * * (Team Project 1) 
+ * * (This makes the music random between levels) 
+ */
 using System;
 using System.Collections;
 using System.Collections.Generic;
