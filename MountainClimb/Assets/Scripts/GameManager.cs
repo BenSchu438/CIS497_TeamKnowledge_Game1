@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         // Aslong as not on main menu screen, pause with 'p'
-        if(Input.GetKeyDown(KeyCode.P))
+        if(Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
         {
             if (!(SceneManager.GetActiveScene().name.Equals("Menu")) && pauseMenu.activeInHierarchy)
                 UnPause();

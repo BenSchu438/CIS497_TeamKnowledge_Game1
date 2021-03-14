@@ -46,32 +46,28 @@ public class Inventory : MonoBehaviour, ISubject
     {
         if(Input.GetKeyDown(KeyCode.I) && opened)
         {
-            Debug.Log("Close Inventory");
-            opened = false;
-            //StartCoroutine(MoveTo(openPos, closePos));
-            this.GetComponent<RectTransform>().anchoredPosition = closePos;
-
-            ToggleViewable();
+            CloseInv();
         }
         else if(Input.GetKeyDown(KeyCode.I) && !opened )
         {
-            Debug.Log("Open Inventory");
-            opened = true;
-            //StartCoroutine(MoveTo(closePos, openPos));
-            this.GetComponent<RectTransform>().anchoredPosition = openPos;
-
-            ToggleViewable();
+            OpenInv();
         }
     }
 
-    //IEnumerator MoveTo(Vector3 start, Vector3 end)
-    //{
-    //    float time = 0;
-    //    while (time <= transTime)
-    //    {
-    //        time += Time.deltaTime;
-    //        this.GetComponent<RectTransform>().anchoredPosition = Vector3.Lerp(this.GetComponent<RectTransform>().anchoredPosition, end, (time / transTime));
-    //    }
-    //    yield return null;
-    //}
+    public void OpenInv()
+    {
+        Debug.Log("Open Inventory");
+        opened = true;
+        this.GetComponent<RectTransform>().anchoredPosition = openPos;
+
+        ToggleViewable();
+    }
+    public void CloseInv()
+    {
+        Debug.Log("Close Inventory");
+        opened = false;
+        this.GetComponent<RectTransform>().anchoredPosition = closePos;
+
+        ToggleViewable();
+    }
 }

@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float verticalInput;
     public float speed = 100.0f;
     public float maxSpeed;
+    public float fallSpeedMultiplier = 1.5f;
 
     public bool grounded;
 
@@ -38,6 +39,24 @@ public class PlayerController : MonoBehaviour
 
         if (rb.velocity.magnitude > maxSpeed)
             rb.velocity = rb.velocity.normalized * maxSpeed;
+
+        // Make player fall faster when in air
+        if(!grounded)
+        {
+            Vector3 temp;
+
+            // checks to make sure player will always go downwards instead of flying into orbit
+            if (rb.velocity.y > 0)
+            {
+                temp = new Vector3(rb.velocity.x, (float)(rb.velocity.y * -1 * fallSpeedMultiplier), rb.velocity.z);
+            }
+            else
+            {
+                temp = new Vector3(rb.velocity.x, (float)(rb.velocity.y * fallSpeedMultiplier), rb.velocity.z);
+            }
+
+            rb.velocity = temp;
+        }
 
     }
 
