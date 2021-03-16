@@ -13,10 +13,13 @@ public class PlayerController : MonoBehaviour
     public float fallSpeedMultiplier = 1.5f;
 
     public bool grounded;
+    public bool walking;
+    public Animator animator;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -35,6 +38,12 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(transform.forward * speed, ForceMode.Force);
 
             transform.rotation = Quaternion.LookRotation(movement);
+            animator.SetBool("walking", true);
+            walking = true;
+        } else
+        {
+            animator.SetBool("walking", false);
+            walking = false;
         }
 
         if (rb.velocity.magnitude > maxSpeed)
@@ -57,22 +66,32 @@ public class PlayerController : MonoBehaviour
 
             rb.velocity = temp;
         }
+        
 
     }
 
     private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
+        {
             grounded = true;
+            animator.SetBool("grounded", true);
+        }
     }
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
+        {
             grounded = false;
+            animator.SetBool("grounded", false);
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
+        {
             grounded = true;
+            animator.SetBool("grounded", true);
+        }
     }
 }
