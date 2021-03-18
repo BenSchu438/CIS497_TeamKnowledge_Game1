@@ -64,7 +64,7 @@ MonoBehaviour:
   currentTool: {fileID: 0}
   standingLog: {fileID: 4638229073027659392}
   fallenLog: {fileID: 4638229071477983785}
-  waitTime: 5
+  waitTime: 0.7
 --- !u!1 &4638229071477983785
 GameObject:
   m_ObjectHideFlags: 0

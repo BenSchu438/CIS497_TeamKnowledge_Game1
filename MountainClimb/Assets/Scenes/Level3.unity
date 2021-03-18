@@ -148,7 +148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2952772276551891325, guid: 4a5da63102ed0eb4a80d62a842f099ab, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.1
+      value: 3.61
       objectReference: {fileID: 0}
     - target: {fileID: 2952772276551891325, guid: 4a5da63102ed0eb4a80d62a842f099ab, type: 3}
       propertyPath: m_LocalPosition.z
@@ -615,7 +615,7 @@ Transform:
   m_LocalScale: {x: 3.0147, y: 4.9459167, z: 3.0147}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &284915768
 MonoBehaviour:
@@ -1683,6 +1683,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 547578991305758511, guid: 30cc9f20ba2f66040b9eb584117f2375, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 547578991305758511, guid: 30cc9f20ba2f66040b9eb584117f2375, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 547578991305758511, guid: 30cc9f20ba2f66040b9eb584117f2375, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 547578991305758511, guid: 30cc9f20ba2f66040b9eb584117f2375, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2827155701475516910, guid: 30cc9f20ba2f66040b9eb584117f2375, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -2169,7 +2185,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820002191}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 484320948}
@@ -2177,7 +2193,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.4}
   m_SizeDelta: {x: 17.2963, y: 2.7493}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1820002193
@@ -2202,7 +2218,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 2
+    m_FontSize: 1
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -2213,7 +2229,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "I - Toggle Inventory \nclick tool to equip"
+  m_Text: 'Tab or Lower Right Button
+
+    - Toggle Inventory'
 --- !u!222 &1820002194
 CanvasRenderer:
   m_ObjectHideFlags: 0

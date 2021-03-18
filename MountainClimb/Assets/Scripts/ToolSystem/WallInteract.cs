@@ -46,19 +46,23 @@ public class WallInteract : Interactable
         playerClose = false;
 
         // Climb up wall
+        Vector3 startPos = startPlayer.transform.position;
+
         float time = 0;
         while (time < waitTime1)
         {
-            startPlayer.transform.position = Vector3.Lerp(startPlayer.transform.position, midPoint, time / waitTime1);
+            startPlayer.transform.position = Vector3.Lerp(startPos, midPoint, time / waitTime1);
             time += Time.deltaTime;
             yield return null;
         }
         startPlayer.transform.position = midPoint;
+
         // Climb over ledge
+        startPos = startPlayer.transform.position;
         time = 0;
         while(time < waitTime2)
         {
-            startPlayer.transform.position = Vector3.Lerp(startPlayer.transform.position, endPoint, time / waitTime2);
+            startPlayer.transform.position = Vector3.Lerp(startPos, endPoint, time / waitTime2);
             time += Time.deltaTime;
             yield return null;
         }

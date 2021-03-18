@@ -13,6 +13,8 @@ public class Inventory : MonoBehaviour, ISubject
     //public float transTime;
     public Vector3 openPos;
     public Vector3 closePos;
+    public GameObject openInvBut;
+    public GameObject closeInvBut;
         
     private void Awake()
     {
@@ -41,14 +43,14 @@ public class Inventory : MonoBehaviour, ISubject
             collectedTools.Remove(s);
     }
 
-    // When I is pressed, open inventory
+    // When tab is pressed, open inventory
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.I) && opened)
+        if(Input.GetKeyDown(KeyCode.Tab) && opened)
         {
             CloseInv();
         }
-        else if(Input.GetKeyDown(KeyCode.I) && !opened )
+        else if(Input.GetKeyDown(KeyCode.Tab) && !opened )
         {
             OpenInv();
         }
@@ -59,6 +61,8 @@ public class Inventory : MonoBehaviour, ISubject
         Debug.Log("Open Inventory");
         opened = true;
         this.GetComponent<RectTransform>().anchoredPosition = openPos;
+        openInvBut.SetActive(false);
+        closeInvBut.SetActive(true);
 
         ToggleViewable();
     }
@@ -67,6 +71,8 @@ public class Inventory : MonoBehaviour, ISubject
         Debug.Log("Close Inventory");
         opened = false;
         this.GetComponent<RectTransform>().anchoredPosition = closePos;
+        openInvBut.SetActive(true);
+        closeInvBut.SetActive(false);
 
         ToggleViewable();
     }

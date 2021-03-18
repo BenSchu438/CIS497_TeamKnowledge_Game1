@@ -36,12 +36,15 @@ public class TreeInteract : Interactable
     IEnumerator TreeFall(Vector3 endPos, Quaternion endRot)
     {
         float time = 0;
+        Vector3 startPos = standingLog.transform.position;
+        Quaternion startRot = standingLog.transform.rotation;
 
         while(time < waitTime)
         {
-            standingLog.transform.position = Vector3.Lerp(standingLog.transform.position, endPos, time / waitTime);
-            standingLog.transform.rotation = Quaternion.Lerp(standingLog.transform.rotation, endRot, time / waitTime);
             time += Time.deltaTime;
+            standingLog.transform.position = Vector3.Lerp(startPos, endPos, time / waitTime);
+            standingLog.transform.rotation = Quaternion.Lerp(startRot, endRot, time / waitTime);
+            
             yield return null;
         }
         standingLog.transform.position = fallenLog.transform.position;
