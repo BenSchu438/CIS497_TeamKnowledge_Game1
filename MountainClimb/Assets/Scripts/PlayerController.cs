@@ -16,10 +16,13 @@ public class PlayerController : MonoBehaviour
     public bool walking;
     public Animator animator;
 
+    public bool cheatOn = false;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        cheatOn = false;
     }
 
     // Update is called once per frame
@@ -29,12 +32,8 @@ public class PlayerController : MonoBehaviour
         verticalInput = Input.GetAxis("Vertical");
         Vector3 movement = new Vector3(horizontalInput, 0.0f, verticalInput);
 
-        //transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
-        //transform.Translate(Vector3.forward * verticalInput * Time.deltaTime * speed);
         if ((horizontalInput != 0 || verticalInput != 0) && grounded)
         {
-            //rb.MovePosition(transform.position + (movement * Time.deltaTime * speed));
-
             rb.AddForce(transform.forward * speed, ForceMode.Force);
 
             transform.rotation = Quaternion.LookRotation(movement);
@@ -49,8 +48,8 @@ public class PlayerController : MonoBehaviour
         if (rb.velocity.magnitude > maxSpeed)
             rb.velocity = rb.velocity.normalized * maxSpeed;
 
-        // Make player fall faster when in air
-        if(!grounded)
+        // Make player fall faster when in air. cheatcode will disable this
+        if(!grounded && !cheatOn)
         {
             Vector3 temp;
 
@@ -66,6 +65,7 @@ public class PlayerController : MonoBehaviour
 
             rb.velocity = temp;
         }
+
         
 
     }

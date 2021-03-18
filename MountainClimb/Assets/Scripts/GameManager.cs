@@ -12,10 +12,20 @@ public class GameManager : MonoBehaviour
 
     public GameObject levelBlock;
 
+    // cheatcode stuff 
+    private string[] code;
+    private int cheatIndex;
+    private bool cheatOn = false;
+
     private void Start()
     {
         // make sure level starts at regular time scale
         Time.timeScale = 1f;
+
+        // Cheatcode stuff
+        code = new string[] { "w", "w", "s", "s", "a", "d", "a", "d", "b", "a" };
+        cheatIndex = 0;
+        cheatOn = false;
     }
 
     // Enable end of level menu
@@ -77,6 +87,31 @@ public class GameManager : MonoBehaviour
                 UnPause();
             else if (!(SceneManager.GetActiveScene().name.Equals("Menu")) && !pauseMenu.activeInHierarchy)
                 Pause();
+        }
+
+        //check for cheatcode input
+        if (Input.anyKeyDown)
+        {
+            if (!cheatOn && Input.GetKeyDown(code[cheatIndex]))
+            {
+                Debug.Log("Inputted part of code: " + code[cheatIndex]);
+                cheatIndex++;
+            }
+            else
+                cheatIndex = 0;
+        }
+        if (code.Length == cheatIndex)
+        {
+            cheatOn = true;
+            cheatIndex = 0;
+            PlayerController temp = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+            if (temp != null)
+            {
+                temp.cheatOn = true;
+                temp.speed = 300;
+                temp.maxSpeed = 25;
+            }
+            
         }
     }
 }
